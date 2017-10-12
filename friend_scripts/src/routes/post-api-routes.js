@@ -8,6 +8,20 @@ var db = require("../models");
 // Routes
 // =============================================================
 module.exports = function(app) {
+
+  app.get("/api/myStories/:authorId", function(req, res) {
+    db.stories.findAll({
+      include: [db.authors],
+      limit : 3,
+      where: {authorId: req.params.authorId}
+
+    }).then(function(result) {
+      res.json(result);
+      // console.log(result);
+    // res.json({response: "ok"})
+  });
+});
+
   // GET route for getting all of the posts
   app.get("/api/stories", function(req, res) {
     // var query = {};

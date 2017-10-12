@@ -20,7 +20,7 @@ linkClicked(route, div) {
                     <div className={'mdc-toolbar__row'}>
                         <section className={'mdc-toolbar__section mdc-toolbar__section--align-start'}>
                             <i className={'menu material-icons'}>menu</i>
-                            <span className={'mdc-toolbar__title'}>Abraxas Web Application</span>
+                            <span className={'mdc-toolbar__title'}>Friendscripts</span>
                         </section>
                     </div>
                 </header>
@@ -28,7 +28,7 @@ linkClicked(route, div) {
                     <nav className={'mdc-temporary-drawer__drawer'}>
                         <header className={'mdc-temporary-drawer__header'}>
                             <div className={'mdc-temporary-drawer__header-content mdc-theme--primary-bg mdc-theme--text-primary-on-primary'}>
-                                Abraxas
+                                Friendscripts
               </div>
                         </header>
                         <nav className={'mdc-temporary-drawer__content mdc-list'}>
