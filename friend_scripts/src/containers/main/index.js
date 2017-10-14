@@ -32,8 +32,8 @@ linkClicked(route, div) {
               </div>
                         </header>
                         <nav className={'mdc-temporary-drawer__content mdc-list'}>
-                            <div className={'mdc-list-item mdc-temporary-drawer--selected'} ref={(div) => { div.addEventListener("click", () => { this.linkClicked('patrons', div) }); }}>
-                                <i className={'material-icons mdc-list-item__start-detail'} aria-hidden="true">people</i>Patrons
+                            <div className={'mdc-list-item mdc-temporary-drawer--selected'} ref={(div) => { div.addEventListener("click", () => { this.linkClicked('landingMain', div) }); }}>
+                                <i className={'material-icons mdc-list-item__start-detail'} aria-hidden="true">Landining_Main</i>
               </div>
                             <div className={'mdc-list-item'} ref={(div) => { div.addEventListener("click", () => { this.linkClicked('staff', div) }); }}>
                                 <i className={'material-icons mdc-list-item__start-detail'} aria-hidden="true">people_outline</i>Staff
