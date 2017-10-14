@@ -1,4 +1,5 @@
 import React from "react";
+import NewStoryForm from "./NewStoryForm";
 
 class MyStories extends React.Component {
 	constructor(props) {
@@ -35,6 +36,7 @@ class MyStories extends React.Component {
 		return (
 			<div>
 				<div className="myStories">{this.state.myStoryInfo}</div>
+				<NewStoryForm />
 			</div>
 		);
 	}
