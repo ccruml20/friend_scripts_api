@@ -1,5 +1,6 @@
 import React from 'react';
 import * as mdc from 'material-components-web/dist/material-components-web';
+import MyStories from '../myPage/myStories'
 
 class Main extends React.Component {
     constructor(props) {
@@ -21,6 +22,7 @@ linkClicked(route, div) {
                         <section className={'mdc-toolbar__section mdc-toolbar__section--align-start'}>
                             <i className={'menu material-icons'}>menu</i>
                             <span className={'mdc-toolbar__title'}>Friendscripts</span>
+                            <span><a href='landingMain'>Logout</a></span>
                         </section>
                     </div>
                 </header>
@@ -33,7 +35,7 @@ linkClicked(route, div) {
                         </header>
                         <nav className={'mdc-temporary-drawer__content mdc-list'}>
                             <div className={'mdc-list-item mdc-temporary-drawer--selected'} ref={(div) => { div.addEventListener("click", () => { this.linkClicked('landingMain', div) }); }}>
-                                <i className={'material-icons mdc-list-item__start-detail'} aria-hidden="true">Landining_Main</i>
+                                <i className={'material-icons mdc-list-item__start-detail'} aria-hidden="true">Landing_Main</i>
               </div>
                             <div className={'mdc-list-item'} ref={(div) => { div.addEventListener("click", () => { this.linkClicked('staff', div) }); }}>
                                 <i className={'material-icons mdc-list-item__start-detail'} aria-hidden="true">people_outline</i>Staff
@@ -58,6 +60,7 @@ linkClicked(route, div) {
                 </aside>
                 <main id="Main-main" className={'mdc-toolbar-fixed-adjust'}>
                 </main>
+                <MyStories/>
             </div >
         );
     }
