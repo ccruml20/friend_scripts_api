@@ -12,9 +12,6 @@ class App extends Component {
 				<div>
 					<Route exact path="/" component={Main} />
 					<Route exact path="/landingMain" component={Landing_Main} />
-
-					{/* <Main />
-      <MyStories /> */}
 				</div>
 			</BrowserRouter>
 		);
