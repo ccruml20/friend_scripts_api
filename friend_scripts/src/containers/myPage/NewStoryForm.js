@@ -4,29 +4,29 @@ export default class NewStoryForm extends React.Component {
 	constructor(props) {
 		super(props);
 		this.handleSubmit = this.handleSubmit.bind(this);
-    this.changeStoryTitle = this.changeStoryTitle.bind(this);
-    this.storyInfo = {
-      newStoryTitle: this.newStoryTitle.value,
-      newStoryText: this.newStoryText.value,
-      sentence: "sentence"
-
-    }
+		this.changeStoryTitle = this.changeStoryTitle.bind(this);
+		this.changeStorySentence = this.changeStorySentence.bind(this);
+		this.storyInfo = {
+			storyTitle: "",
+			sentence: ""
+		};
 	}
 
-changeStoryTitle (event) {
-  this.
-}
+	changeStoryTitle(event) {
+		this.storyInfo.storyTitle = event.target.value;
+	}
+
+	changeStorySentence(event) {
+		this.storyInfo.sentence = event.target.value;
+	}
 
 	handleSubmit(event) {
 		event.preventDefault();
+		console.log("POST: " + JSON.stringify(this.storyInfo));
 		fetch("./api/stories", {
 			method: "post",
 			headers: { "Content-Type": "application/json" },
-			body: {
-				newStoryTitle: this.newStoryTitle.value,
-				newStoryText: this.newStoryText.value,
-				sentence: "sentence"
-			}
+			body: JSON.stringify(this.storyInfo)
 		});
 	}
 
@@ -45,29 +45,22 @@ changeStoryTitle (event) {
 										<input
 											id="newStoryTitle"
 											placeholder="Title of New Story"
-											ref={ref => {
-												this.newStoryTitle = ref;
-											}}
-											name="newStoryTitle"
 											type="text"
 											className="txt userTitle"
-											OnChange={this.changeStoryTitle}
+											onChange={this.changeStoryTitle}
 										/>
 
 										<textarea
 											id="newStoryText"
-											ref={ref => {
-												this.newStoryText = ref;
-											}}
 											placeholder="Your Message"
-											name="newStoryText"
 											type="text"
 											className="txt_3"
+											onChange={this.changeStorySentence}
 										/>
 										<input
-											onSubmit={this.handleSubmit}
+											onClick={this.handleSubmit}
 											type="submit"
-											value="Submit"
+											// value="Submit"
 											name="Submit"
 											className="txt2 commitNewStory"
 										/>
