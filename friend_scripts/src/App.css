@@ -31,10 +31,6 @@
 	}
 }
 
-.myStories {
-	color: orange;
-}
-
 .signupStyle {
 	height: 60vh;
 }
@@ -101,10 +97,6 @@ hr {
 	border-top: 1px solid #ccc;
 	margin: 1em 0;
 	padding: 0;
-}
-
-h1 {
-	text-align: center;
 }
 
 .nav-side-menu .brand {

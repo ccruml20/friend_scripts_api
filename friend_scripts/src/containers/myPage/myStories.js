@@ -22,8 +22,9 @@ class MyStories extends React.Component {
 
 					return (
 						<div key={index}>
-							<div>storyTitle:{info.storyTitle}</div>
+							<div>storyTitle: {info.storyTitle}</div>
 							<div>author: {info.author.authorName}</div>
+							<br />
 						</div>
 					);
 				});
@@ -35,6 +36,7 @@ class MyStories extends React.Component {
 	render() {
 		return (
 			<div>
+				<h1 style={{ margin: 0 }}> Last 3 Stories: </h1>
 				<div className="myStories">{this.state.myStoryInfo}</div>
 				<NewStoryForm />
 			</div>

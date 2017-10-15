@@ -64,7 +64,7 @@ export default class NewStoryForm extends React.Component {
 										<input
 											onClick={this.handleSubmit}
 											type="submit"
-											// value="Submit"
+											value="Submit"
 											name="Submit"
 											className="txt2 commitNewStory"
 										/>
