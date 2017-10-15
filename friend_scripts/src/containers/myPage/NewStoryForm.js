@@ -28,6 +28,8 @@ export default class NewStoryForm extends React.Component {
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify(this.storyInfo)
 		});
+		this.refs.storyTitle.value = "";
+		this.refs.storyText.value = "";
 	}
 
 	render() {
@@ -44,6 +46,7 @@ export default class NewStoryForm extends React.Component {
 									<form id="contactFrm">
 										<input
 											id="newStoryTitle"
+											ref="storyTitle"
 											placeholder="Title of New Story"
 											type="text"
 											className="txt userTitle"
@@ -52,6 +55,7 @@ export default class NewStoryForm extends React.Component {
 
 										<textarea
 											id="newStoryText"
+											ref="storyText"
 											placeholder="Your Message"
 											type="text"
 											className="txt_3"
