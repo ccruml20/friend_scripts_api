@@ -2,11 +2,7 @@ import React from 'react';
 import * as mdc from 'material-components-web/dist/material-components-web';
 import MyStories from '../myPage/myStories'
 
-class Main extends React.Component {
-    constructor(props) {
-        super(props);this.linkClicked = this.linkClicked.bind(this);
-    }
-linkClicked(route, div) {
+import * as mdc from "material-components-web/dist/material-components-web";
 
         document.querySelectorAll('.mdc-list-item').forEach(element => {
             element.className = 'mdc-list-item';
@@ -65,12 +61,16 @@ linkClicked(route, div) {
         );
     }
 
-    componentDidMount() {
-        mdc.autoInit();
+	componentDidMount() {
+		mdc.autoInit();
 
-        this.drawer = new mdc.drawer.MDCTemporaryDrawer(document.querySelector('.mdc-temporary-drawer'));
-        document.querySelector('.menu').addEventListener('click', () => this.drawer.open = true);
-    }
+		this.drawer = new mdc.drawer.MDCTemporaryDrawer(
+			document.querySelector(".mdc-temporary-drawer")
+		);
+		document
+			.querySelector(".menu")
+			.addEventListener("click", () => (this.drawer.open = true));
+	}
 }
 
 export default Main;
