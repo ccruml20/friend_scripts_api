@@ -15,6 +15,7 @@ var passport = require('passport');
 // =============================================================
 var app = express();
 var PORT = process.env.PORT || 8082;
+var DEV = process.env.NODE_ENV = 'development'
 
 // Requiring our models for syncing
 var db = require("./models");

@@ -1,5 +1,6 @@
 import React from 'react';
-import CreateLogin from './CreateLogin'
+import LoginForm from './Login'
+import CreateAccountButton from './CreateAccountButton'
 
 
 export default class Landing_Main extends React.Component {
@@ -15,7 +16,9 @@ export default class Landing_Main extends React.Component {
         return (
             <div className="landingMain">
 
-              <CreateLogin/>
+              <div ><LoginForm/></div>
+              <div> <CreateAccountButton/></div>
+
 
             </div>
         );
