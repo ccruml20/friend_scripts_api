@@ -1,6 +1,10 @@
 import React from 'react';
 import * as mdc from 'material-components-web/dist/material-components-web';
 
+import Stories from '../../components/stories/index.js';
+import MDCFoundation from '../../components/textField/index';
+import TopStories from '../../components/topStories/index';
+
 class Main extends React.Component {
     constructor(props) {
         super(props);this.linkClicked = this.linkClicked.bind(this);
@@ -20,7 +24,7 @@ linkClicked(route, div) {
                     <div className={'mdc-toolbar__row'}>
                         <section className={'mdc-toolbar__section mdc-toolbar__section--align-start'}>
                             <i className={'menu material-icons'}>menu</i>
-                            <span className={'mdc-toolbar__title'}>Abraxas Web Application</span>
+                            <span className={'mdc-toolbar__title'}>Friend Scripts</span>
                         </section>
                     </div>
                 </header>
@@ -28,7 +32,7 @@ linkClicked(route, div) {
                     <nav className={'mdc-temporary-drawer__drawer'}>
                         <header className={'mdc-temporary-drawer__header'}>
                             <div className={'mdc-temporary-drawer__header-content mdc-theme--primary-bg mdc-theme--text-primary-on-primary'}>
-                                Abraxas
+                                Friend Scripts
               </div>
                         </header>
                         <nav className={'mdc-temporary-drawer__content mdc-list'}>
@@ -58,6 +62,9 @@ linkClicked(route, div) {
                 </aside>
                 <main id="Main-main" className={'mdc-toolbar-fixed-adjust'}>
                 </main>
+                <Stories />
+                <MDCFoundation />
+                <TopStories />
             </div >
         );
     }
