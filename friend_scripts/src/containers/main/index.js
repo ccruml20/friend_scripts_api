@@ -2,14 +2,18 @@ import React from 'react';
 import * as mdc from 'material-components-web/dist/material-components-web';
 import MyStories from '../myPage/myStories'
 
-import * as mdc from "material-components-web/dist/material-components-web";
+class Main extends React.Component {
+    constructor(props) {
+        super(props);this.linkClicked = this.linkClicked.bind(this);
+    }
+linkClicked(route, div) {
 
         document.querySelectorAll('.mdc-list-item').forEach(element => {
             element.className = 'mdc-list-item';
         });
         div.className = 'mdc-list-item mdc-temporary-drawer--selected';
       alert(route);
-    }
+}
     render() {
         return (
             <div className={'Main'}>
