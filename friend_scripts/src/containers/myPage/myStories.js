@@ -1,5 +1,6 @@
 import React from "react";
 import NewStoryForm from "./NewStoryForm";
+// import Chat from "./Chat";
 
 class MyStories extends React.Component {
 	constructor(props) {
@@ -39,6 +40,7 @@ class MyStories extends React.Component {
 				<h1 style={{ margin: 0 }}> Last 3 Stories: </h1>
 				<div className="myStories">{this.state.myStoryInfo}</div>
 				<NewStoryForm />
+				{/* <Chat /> */}
 			</div>
 		);
 	}

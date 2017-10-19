@@ -718,3 +718,11 @@ img.img-circle {
 	color: #5793ef;
 	transition: all 0.5s ease 0s;
 }
+
+#messages {
+	height: 300px;
+}
+
+#textarea {
+	height: 50px;
+}

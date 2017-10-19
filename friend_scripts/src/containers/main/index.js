@@ -154,6 +154,7 @@ class Main extends React.Component {
 				</aside>
 				<main id="Main-main" className={"mdc-toolbar-fixed-adjust"} />
 				<MyStories />
+				{/* <Chat /> */}
 			</div>
 		);
 	}
