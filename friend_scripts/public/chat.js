@@ -32,6 +32,11 @@
 		}
 	};
 
+	var bottom = document.getElementById("out");
+	// allow 1px inaccuracy by adding 1
+	var isScrolledToBottom =
+		out.scrollHeight - out.clientHeight <= out.scrollTop + 1;
+
 	// Connect to socket.io
 	var socket = io.connect("http://127.0.0.1:4000");
 
