@@ -35,10 +35,10 @@ export default class NewStoryForm extends React.Component {
 
 	render() {
 		return (
-			<div className="col-md-7 col-sm-8 bootMain">
-				<div className="container">
+
+				<div className="col-md-6">
 					<div className="row">
-						<div className="col-md-6">
+
 							<div className="form_main">
 								<h4 className="heading">
 									<strong>Create </strong> New Story <span />
@@ -72,10 +72,10 @@ export default class NewStoryForm extends React.Component {
 									</form>
 								</div>
 							</div>
-						</div>
+
 					</div>
 				</div>
-			</div>
+
 		);
 	}
 }

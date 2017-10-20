@@ -100,7 +100,7 @@ module.exports = function(app) {
 	});
 	app.post("/api/sentences", function(req, res) {
 		// console.log(req.body.storyTitle);
-		console.log(req.body.storyId);
+		console.log(req.body.storyId, ' (((((((((((((((((storyId)))))))))))))))))');
 		console.log(req.body.sentence);
 		db.sentences
 			.create({
@@ -110,6 +110,7 @@ module.exports = function(app) {
 			})
 			.then(function(result) {
 				res.json(result);
+				console.log(result, '{{{{{{{{{{{{{{{{[[[[[[[[[[[[[resuttbbbaby]]]]]]]]]]]]]}}}}}}}}}}}}}}}}');
 			});
 	});
 	// DELETE route for deleting posts
