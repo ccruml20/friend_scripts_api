@@ -88,7 +88,7 @@ mongo.connect("mongodb://127.0.0.1/mongochat", function(err, db) {
 
 			// Validate name and message
 			if (name == "" || message == "") {
-				sendStatus("Please enter a name and a message");
+				sendStatus("Please enter a name and a message...");
 			} else {
 				// Insert message into database
 				chat.insert({ name: name, message: message }, function() {

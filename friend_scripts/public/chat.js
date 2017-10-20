@@ -28,7 +28,7 @@
 		if (s !== statusDefault) {
 			var delay = setTimeout(function() {
 				setStatus(statusDefault);
-			}, 4000);
+			}, 3000);
 		}
 	};
 

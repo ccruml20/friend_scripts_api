@@ -728,3 +728,7 @@ img.img-circle {
 #textarea {
 	height: 50px;
 }
+
+#status {
+	color: red;
+}
