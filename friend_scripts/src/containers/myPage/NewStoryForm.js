@@ -30,6 +30,7 @@ export default class NewStoryForm extends React.Component {
 		});
 		this.refs.storyTitle.value = "";
 		this.refs.storyText.value = "";
+		// this.refs.authorID.value = this.state.userID;
 	}
 
 	render() {
