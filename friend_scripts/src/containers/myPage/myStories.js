@@ -14,7 +14,7 @@ class MyStories extends React.Component {
 
 	componentDidMount() {
 		var self = this;
-		fetch("./api/myStories/"+this.state.userID)
+		fetch("./api/myStories/1")
 			.then(function(response) {
 				return response.json();
 			})

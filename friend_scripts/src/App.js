@@ -1,12 +1,9 @@
 import React, { Component } from "react";
-
 import Main from "./containers/main/index";
 import { BrowserRouter, Route, Redirect } from "react-router-dom";
 import Landing_Main from "./containers/Landing/Landing_Main";
 import CreateAccountForm from "./containers/Landing/CreateAccountPage";
-import "./App.css"
-import graph from 'fb-react-sdk';
-
+import "./App.css";
 
 class App extends Component {
 	constructor(props) {

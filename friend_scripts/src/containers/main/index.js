@@ -1,6 +1,6 @@
-import React from 'react';
-import * as mdc from 'material-components-web/dist/material-components-web';
-import MyStories from '../myPage/myStories'
+import React from "react";
+import * as mdc from "material-components-web/dist/material-components-web";
+import MyStories from "../myPage/myStories";
 
 class Main extends React.Component {
   constructor(props) {
