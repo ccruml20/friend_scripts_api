@@ -720,7 +720,9 @@ img.img-circle {
 }
 
 #messages {
+	margin: 10px;
 	height: 300px;
+	overflow: scroll;
 }
 
 #textarea {

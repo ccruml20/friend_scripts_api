@@ -45,10 +45,13 @@
 			if (data.length) {
 				for (var i = 0; i < data.length; i++) {
 					// Create message divs
-					var message = document.createElement("div");
-					message.setAttribute("class", "chat-message");
-					message.textContent = data[i].name + ": " + data[i].message;
-					messages.appendChild(message);
+
+					$("#messages").append(
+						`<div class="chat-message">
+							<strong>${data[i].name + ": "}</strong>
+							${data[i].message}
+						</div>`
+					);
 				}
 			}
 		});
