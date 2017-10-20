@@ -1,6 +1,9 @@
 import React from "react";
 import NewStoryForm from "./NewStoryForm";
 
+
+
+
 class MyStories extends React.Component {
 	constructor(props) {
 		super(props);
@@ -11,17 +14,17 @@ class MyStories extends React.Component {
 
 	componentDidMount() {
 		var self = this;
-		fetch("./api/myStories/1")
+		fetch("./api/myStories/"+this.state.userID)
 			.then(function(response) {
 				return response.json();
 			})
 			.then(function(body) {
-				// console.log(body);
+				// console.log("myStories response"+body);
 				let myStoryInfo = body.map((info, index) => {
 					console.log(info);
 
 					return (
-						<div key={index}>
+						<div  key={index}>
 							<div>storyTitle: {info.storyTitle}</div>
 							<div>author: {info.author.authorName}</div>
 							<br />

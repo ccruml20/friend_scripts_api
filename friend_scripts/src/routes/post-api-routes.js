@@ -91,7 +91,7 @@ module.exports = function(app) {
 		db.stories
 			.create({
 				storyTitle: req.body.storyTitle,
-				authorId: 1,
+				authorId: req.body.authorId,
 				sentence: req.body.sentence
 			})
 			.then(function(result) {

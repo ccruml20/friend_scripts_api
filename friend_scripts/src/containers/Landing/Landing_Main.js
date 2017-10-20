@@ -16,7 +16,7 @@ export default class Landing_Main extends React.Component {
         return (
             <div className="landingMain">
 
-              <div ><LoginForm/></div>
+              <div ><LoginForm {...this.props} /></div>
               <div> <CreateAccountButton/></div>
 
 
