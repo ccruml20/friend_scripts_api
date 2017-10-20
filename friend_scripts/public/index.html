@@ -1,49 +1,73 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="theme-color" content="#000000">
-  <!--
-  manifest.json provides metadata used when your web app is added to the
-  homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
--->
-<link rel="manifest" href="%PUBLIC_URL%/manifest.json">
-<link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-<link rel="stylesheet" href="https://unpkg.com/material-components-web@0.13.0/dist/material-components-web.min.css">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <!--
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <link rel="stylesheet" href="https://unpkg.com/material-components-web@0.13.0/dist/material-components-web.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+  </head>
+  <body>
+
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
 
 <link rel="stylesheet" href="//cdn.quilljs.com/1.2.6/quill.snow.css">
 
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
 
-<!--
-Notice the use of %PUBLIC_URL% in the tags above.
-It will be replaced with the URL of the `public` folder during the build.
-Only files inside the `public` folder can be referenced from the HTML.
+    <!-- html for chat area -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+    <!-- <button id="chatBtn" class="btn btn-info">Chat</button>
+    <div id = 'chatContainer' class = "container">
+      <div class="row">
+        <div class="col-md-6 offset-md-3 col-sm-12">
+          <h1 class = "text-center">
+            Friendscripts Chat
+            <button id="clear" class="btn btn-danger">Clear</button>
+          </h1>
+          <div id="status"></div>
+          <div id="chat">
+            <input type="text" id="username" class="form-control" placeholder="Enter name...">
+            <br>
+            <div class="card">
+              <div class="card-block" id="messages">
 
-Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-work correctly both with client-side routing and a non-root public URL.
-Learn how to configure a non-root public URL by running `npm run build`.
--->
-<title>React App</title>
-</head>
-<body>
-  <noscript>
-    You need to enable JavaScript to run this app.
-  </noscript>
-  <div id="root"></div>
-  <!--
-  This HTML file is a template.
-  If you open it directly in the browser, you will see an empty page.
+              </div>
+            </div>
+            <br>
+            <textarea id="textarea" class="form-control" placeholder="Enter message..."></textarea>
+          </div>
+        </div>
+      </div>
+    </div> -->
 
-  You can add webfonts, meta tags, or analytics to this file.
-  The build step will place the bundled scripts into the <body> tag.
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script> -->
+    <!-- <script src = "./chat.js"></script> -->
 
-  To begin the development, run `npm start` or `yarn start`.
-  To create a production bundle, use `npm run build` or `yarn build`.
--->
-</body>
+
+  </body>
 </html>

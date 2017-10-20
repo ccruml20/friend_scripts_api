@@ -30,14 +30,15 @@ export default class NewStoryForm extends React.Component {
 		});
 		this.refs.storyTitle.value = "";
 		this.refs.storyText.value = "";
+		// this.refs.authorID.value = this.state.userID;
 	}
 
 	render() {
 		return (
-			<div className="col-md-6 col-sm-8 bootMain">
+			<div className="">
 				<div className="container">
 					<div className="row">
-						<div className="col-md-6">
+						<div className="">
 							<div className="form_main">
 								<h4 className="heading">
 									<strong>Create </strong> New Story <span />

@@ -381,7 +381,7 @@ img.img-circle {
 
 /*.menu {
 	background-color: #00547e;
-	width: 100%;
+	width: 8px;
 	height: auto;
 	padding: 0 10px;
 	position: fixed;
@@ -717,4 +717,18 @@ img.img-circle {
 	background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
 	color: #5793ef;
 	transition: all 0.5s ease 0s;
+}
+
+#messages {
+	margin: 10px;
+	height: 300px;
+	overflow: scroll;
+}
+
+#textarea {
+	height: 50px;
+}
+
+#status {
+	color: red;
 }

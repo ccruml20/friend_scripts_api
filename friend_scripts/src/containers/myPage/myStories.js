@@ -3,6 +3,9 @@ import NewStoryForm from "./NewStoryForm";
 import * as mdc from 'material-components-web/dist/material-components-web';
 import EditStories from '../editStories/editStories.js';
 
+
+
+
 class MyStories extends React.Component {
 	constructor(props) {
 		super(props);
@@ -138,8 +141,8 @@ class MyStories extends React.Component {
 			<div>
 				<div style={{display: this.state.elementHidden ? "block" : "none"}}>
 					<div className='col-md-12'>
-						<h1 className='col-md-6' style={{ margin: '40px 0 40px 0' }}> Latest Stories </h1>
-						<h1 className='col-md-6' style={{ margin: '40px 0 40px 0' }}> Create Story </h1>
+						<h1 className='col-md-5' style={{ margin: '0px 0 0px 0' }}> Latest Stories </h1>
+						<h1 className='col-md-5' style={{ margin: '0px 0 0px 0' }}> Create Story </h1>
 					</div>
 					<div className='col-md-6'>
 						{this.state.myStoryInfo.map((info, index) => {

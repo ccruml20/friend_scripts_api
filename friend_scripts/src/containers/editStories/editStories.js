@@ -10,7 +10,7 @@ class EditStories extends React.Component {
     // console.log(this.props, 'this is the entire props object');
     return (
       <div className="mdc-radio col-md-12">
-        <div style={{height: '120px', margin: '15px 0 15px 0'}} className='col-md-6'>
+        <div style={{height: '250px', margin: '20px 0 20px 0'}} className='col-md-12'>
           <form onSubmit={this.props.handleSubmit}>
             <div className="mdc-card">
               <section className="mdc-card__primary">
