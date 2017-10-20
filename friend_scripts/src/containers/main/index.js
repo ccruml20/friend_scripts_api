@@ -1,8 +1,9 @@
-import React from 'react';
-import * as mdc from 'material-components-web/dist/material-components-web';
-import MyStories from '../myPage/myStories'
+import React from "react";
+import * as mdc from "material-components-web/dist/material-components-web";
+import MyStories from "../myPage/myStories";
 
 class Main extends React.Component {
+
   constructor(props) {
     super(props);
     this.linkClicked = this.linkClicked.bind(this);
@@ -66,6 +67,7 @@ class Main extends React.Component {
       </div>
     );
   }
+
 
   componentDidMount() {
     mdc.autoInit();
