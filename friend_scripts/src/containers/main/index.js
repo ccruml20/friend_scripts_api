@@ -1,13 +1,14 @@
 import React from 'react';
 import * as mdc from 'material-components-web/dist/material-components-web';
+import MyStories from '../myPage/myStories'
 
-import Stories from '../../components/stories/index.js';
-import MDCFoundation from '../../components/textField/index';
-import TopStories from '../../components/topStories/index';
+
+
 
 class Main extends React.Component {
     constructor(props) {
-        super(props);this.linkClicked = this.linkClicked.bind(this);
+        super(props);
+        this.linkClicked = this.linkClicked.bind(this);
     }
 linkClicked(route, div) {
 
@@ -16,7 +17,7 @@ linkClicked(route, div) {
         });
         div.className = 'mdc-list-item mdc-temporary-drawer--selected';
       alert(route);
-    }
+}
     render() {
         return (
             <div className={'Main'}>
@@ -24,7 +25,8 @@ linkClicked(route, div) {
                     <div className={'mdc-toolbar__row'}>
                         <section className={'mdc-toolbar__section mdc-toolbar__section--align-start'}>
                             <i className={'menu material-icons'}>menu</i>
-                            <span className={'mdc-toolbar__title'}>Friend Scripts</span>
+                            <span className={'mdc-toolbar__title'}>Friendscripts</span>
+                            <span><a href='landingMain'>Logout</a></span>
                         </section>
                     </div>
                 </header>
@@ -32,12 +34,12 @@ linkClicked(route, div) {
                     <nav className={'mdc-temporary-drawer__drawer'}>
                         <header className={'mdc-temporary-drawer__header'}>
                             <div className={'mdc-temporary-drawer__header-content mdc-theme--primary-bg mdc-theme--text-primary-on-primary'}>
-                                Friend Scripts
+                                Friendscripts
               </div>
                         </header>
                         <nav className={'mdc-temporary-drawer__content mdc-list'}>
-                            <div className={'mdc-list-item mdc-temporary-drawer--selected'} ref={(div) => { div.addEventListener("click", () => { this.linkClicked('patrons', div) }); }}>
-                                <i className={'material-icons mdc-list-item__start-detail'} aria-hidden="true">people</i>Patrons
+                            <div className={'mdc-list-item mdc-temporary-drawer--selected'} ref={(div) => { div.addEventListener("click", () => { this.linkClicked('landingMain', div) }); }}>
+                                <i className={'material-icons mdc-list-item__start-detail'} aria-hidden="true">Landing_Main</i>
               </div>
                             <div className={'mdc-list-item'} ref={(div) => { div.addEventListener("click", () => { this.linkClicked('staff', div) }); }}>
                                 <i className={'material-icons mdc-list-item__start-detail'} aria-hidden="true">people_outline</i>Staff
@@ -62,19 +64,22 @@ linkClicked(route, div) {
                 </aside>
                 <main id="Main-main" className={'mdc-toolbar-fixed-adjust'}>
                 </main>
-                <Stories />
-                <MDCFoundation />
-                <TopStories />
+                <MyStories />
+
             </div >
         );
     }
 
-    componentDidMount() {
-        mdc.autoInit();
+	componentDidMount() {
+		mdc.autoInit();
 
-        this.drawer = new mdc.drawer.MDCTemporaryDrawer(document.querySelector('.mdc-temporary-drawer'));
-        document.querySelector('.menu').addEventListener('click', () => this.drawer.open = true);
-    }
+		this.drawer = new mdc.drawer.MDCTemporaryDrawer(
+			document.querySelector(".mdc-temporary-drawer")
+		);
+		document
+			.querySelector(".menu")
+			.addEventListener("click", () => (this.drawer.open = true));
+	}
 }
 
 export default Main;
