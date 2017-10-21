@@ -44,12 +44,6 @@ require("./routes/authRoutes.js")(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
-db.sequelize.sync({}).then(function() {
-	app.listen(PORT, function() {
-		console.log("App listening on PORT " + PORT);
-	});
-});
-
 // Connect to mongodb
 mongo.connect("mongodb://127.0.0.1/mongochat", function(err, db) {
 	if (err) {
@@ -71,7 +65,7 @@ mongo.connect("mongodb://127.0.0.1/mongochat", function(err, db) {
 		// Get chats from mongo collection
 		chat
 			.find()
-			.limit(100)
+			.limit(200)
 			.sort({ _id: 1 })
 			.toArray(function(err, res) {
 				if (err) {
@@ -79,13 +73,13 @@ mongo.connect("mongodb://127.0.0.1/mongochat", function(err, db) {
 				}
 
 				// Emit messages to client
-				socket.broadcast.emit("output", res);
+				socket.emit("output", res);
 				console.log(res);
-				// history = res;
+				history = res;
 			});
 
 		// Handle input events
-		socket.on("chat message", function(data) {
+		socket.on("input", function(data) {
 			let name = data.name;
 			let message = data.message;
 
@@ -96,6 +90,7 @@ mongo.connect("mongodb://127.0.0.1/mongochat", function(err, db) {
 				// Insert message into database
 				chat.insert({ name: name, message: message }, function() {
 					io.emit("output", [data]);
+					console.log([data]);
 
 					// Send status object
 					sendStatus({
@@ -117,3 +112,9 @@ mongo.connect("mongodb://127.0.0.1/mongochat", function(err, db) {
 	});
 });
 // module.exports = history;
+
+db.sequelize.sync({}).then(function() {
+	app.listen(PORT, function() {
+		console.log("App listening on PORT " + PORT);
+	});
+});

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import io from "socket.io-client";
-var socket = io.connect("http://127.0.0.1:4000");
+const socket = io.connect("http://127.0.0.1:4000");
 // var history = require("../../server.js");
 export default class ChatContainer extends Component {
 	constructor(props) {
@@ -24,20 +24,6 @@ export default class ChatContainer extends Component {
 		});
 	}
 
-	componentWillMount() {
-		console.log("did mount");
-		socket.on("output", function(data) {
-			console.log(data);
-		});
-	}
-
-	componentWillUnmount() {
-		console.log("did mount");
-		socket.on("output", function(data) {
-			console.log(data);
-		});
-	}
-
 	handleOnNameChange(ev) {
 		this.setState({ name: ev.target.value });
 		// console.log(ev.target.value);
@@ -50,20 +36,9 @@ export default class ChatContainer extends Component {
 
 	handleOnSubmit(ev) {
 		ev.preventDefault();
-		socket.emit("chat message", {
+		socket.emit("input", {
 			name: this.state.name,
 			message: this.state.message
-		});
-
-		socket.on("output", inboundMessage => {
-			console.log(inboundMessage, "this is the inboundMessage");
-			let messages = [];
-			// console.log(body + 'this is the full story')
-			inboundMessage.map((info, index) => {
-				console.log(info, "fullchatie cathie");
-				messages.push(info);
-			});
-			return messages;
 		});
 
 		// socket.on("output", inboundMessage => {
@@ -89,7 +64,11 @@ export default class ChatContainer extends Component {
 						<div className="col-md-6 offset-md-3 col-sm-12">
 							<h1 className="text-center">
 								Friendscripts Chat
-								<button id="clear" className="btn btn-danger">
+								<button
+									id="clear"
+									className="btn btn-danger"
+									onClick={this.test}
+								>
 									Clear
 								</button>
 							</h1>
