@@ -12,11 +12,6 @@ class EditStories extends React.Component {
 	}
 	render() {
 		// console.log(this.props, 'this is the entire props object');
-const contentEditablefunc = function () {
-	console.log(document.getElementById("contentEditable1").value);
-}
-
-
 		return (
 			<div className="mdc-radio col-md-12">
 				<div
@@ -39,8 +34,8 @@ const contentEditablefunc = function () {
 								/>
 							</div>
 							<form
-								<input className="mdc-card__supporting-text" id='contentEditable1' onChange={this.contentEditablefunc} contentEditable="true" >
-
+                 className="mdc-card__supporting-text">
+								<div contentEditable="true" >
 									{this.props.pickedStory.sentence}
 									{this.props.stories.map((info, index) => {
 										console.log(
@@ -49,8 +44,7 @@ const contentEditablefunc = function () {
 										);
 										return <span>{` ${info} `}</span>;
 									})}
-
-							</input>
+								</div>
 							</form>
 							<div className="textField mdc-textfield col-md-12">
 								<input

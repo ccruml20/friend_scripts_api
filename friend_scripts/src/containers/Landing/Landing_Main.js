@@ -20,20 +20,26 @@ export default class Landing_Main extends React.Component {
             <div style={{margin: '20px 200px 20px 0'}} className='col-md-6'> <img   className="img-responsive" src={arrows} alt="" /></div>
           </div>
         </div>
-          <div style={{textAlign: 'center', color:'white', backgroundColor: '#143f48'}} className='col-md-12'>
+          <div style={{textAlign: 'center', color:'white', backgroundColor: '#143f48', height: '20vh'}} className='col-md-12'>
             {/* <div className='row'> */}
               <div className='col-md-12'>
                 <div className='col-md-4'>
-                  <h2 className='col-md-12' ><strong>Join</strong>   Stories</h2>
-                  <p>Join in on a Friend Scripts story to collaborate with other writers and editors, to just play around or take your ideas to the next level.</p>
+                  <h2  style={{fontSize: '2em'}} className='col-md-12' ><strong>Join</strong>   Stories</h2>
+                  <br></br>
+                  <br></br>
+                  <h2 style={{paddingTop: '30px'}} >Join in on a Friend Scripts story to collaborate with other writers and editors, to just play around or take your ideas to the next level.</h2>
                 </div>
                 <div className='col-md-4'>
-                    <h2 className='col-md-12' ><strong>Chat</strong>   it <strong>up</strong> </h2>
-                    <p>Friend Scripts in app messenger makes it easy to communicate with other collaborators, to help keep the project on track.</p>
+                    <h1 style={{fontSize: '2em'}} className='col-md-12' ><strong>Chat</strong>   it <strong>up</strong> </h1>
+                    <br></br>
+                    <br></br>
+                    <h2 style={{paddingTop: '30px'}}>Friend Scripts in app messenger makes it easy to communicate with other collaborators, to help keep the project on track.</h2>
                 </div>
                 <div className='col-md-4'>
-                    <h2 className='col-md-12' ><strong>Editor</strong>   Market Place</h2>
-                    <p>If you're an editor, take advantage of all of our current popular stories, maybe together your project can make it big</p>
+                    <h1 style={{fontSize: '2em'}} className='col-md-12' ><strong>Editor</strong>   Market Place</h1>
+                    <br></br>
+                    <br></br>
+                    <h3 style={{paddingTop: '30px'}}>If you're an editor, take advantage of all of our current popular stories, maybe together your project can make it big</h3>
                   </div>
               </div>
             {/* </div> */}
