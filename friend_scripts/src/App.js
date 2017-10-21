@@ -30,8 +30,8 @@ class App extends Component {
 //   .get("me", function(err, res) {
 //     console.log(res); // { id: '4', name: 'Mark Zuckerberg'... }
 //   });
-console.log(this.state.accessToken)
-console.log(this.state.userPic);
+// console.log(this.state.accessToken)
+// console.log(this.state.userPic);
 		return this.state.user;
 	}
 

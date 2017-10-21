@@ -35,7 +35,7 @@ export default class NewStoryForm extends React.Component {
 
 	render() {
 		return (
-			<div className="">
+			<div className="col-md-6">
 				<div className="container">
 					<div className="row">
 						<div className="">
