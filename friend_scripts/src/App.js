@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Redirect } from "react-router-dom";
 import Landing_Main from "./containers/Landing/Landing_Main";
 import CreateAccountForm from "./containers/Landing/CreateAccountPage";
 import "./App.css";
+import EditStories from './containers/editStories/editStories';
 
 
 class App extends Component {
@@ -58,6 +59,7 @@ class App extends Component {
 			<BrowserRouter>
 				<div>
 					<AuthRoute exact path="/" component={Main} checkAuth={() => this.isLoggedIn()} />
+					<AuthRoute exact path="/edit" component={EditStories} checkAuth={() => this.isLoggedIn()} />
 					<Route exact path="/landingMain" render={(props) => <Landing_Main logInUser={this.logInUser.bind(this)} {...props} />} />
 					<Route exact path="/CreateAccount" component={CreateAccountForm} />
 				</div>

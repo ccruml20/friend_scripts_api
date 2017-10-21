@@ -2,11 +2,12 @@ import React from "react";
 import NewStoryForm from "./NewStoryForm";
 import * as mdc from "material-components-web/dist/material-components-web";
 import EditStories from "../editStories/editStories.js";
-import { EditorState } from 'draft-js';
+
 class MyStories extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			records: '',
 			stories: [],
 			text: "",
 			storyId: "",
@@ -19,6 +20,7 @@ class MyStories extends React.Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handlePickedStory = this.handlePickedStory.bind(this);
 		this.handleChange = this.handleChange.bind(this);
+		this.handleRecordChange = this.handleRecordChange.bind(this);
 	}
 
 	handleSubmit(e) {
@@ -57,16 +59,18 @@ class MyStories extends React.Component {
 			let stories = [];
 			let fullstory = body.map((info, index) => {
 				stories.push(info.sentence);
-				console.log(stories);
 				return stories;
 			});
-
-
-
+			this.setState({ stories });
+			let draft = stories.join();
+			let fixedDraft = draft.replace(",", " ");
+			console.log(fixedDraft, 'fixing this shit');
 		});
 	}
 
-
+	handleRecordChange(e){
+    this.setState({ records: e.target.value});
+  }
 	handlePickedStory(e, info) {
 		e.preventDefault();
 		let pickedStory = info;
@@ -93,18 +97,12 @@ class MyStories extends React.Component {
 				return stories;
 			});
 			this.setState({ stories });
-			let formatedStories = stories.join()
-			console.log(formatedStories)
-			let moreFormatting = ("<p>"+formatedStories+"</p>");
-			moreFormatting = '"'+moreFormatting+'"'
-			console.log(moreFormatting , ' formatedStories damnit');
-			this.setState({ stories: moreFormatting });
-
 		});
 	}
 
 	handleChange(e, value) {
 		this.setState({ text: e.target.value });
+		console.log(this.state, '=========================================================');
 	}
 
 	componentWillMount() {
@@ -174,6 +172,8 @@ class MyStories extends React.Component {
 						</div>
 						<div style={{ display: this.state.elementHidden2 ? "block" : "none" }}>
 							<EditStories
+								records={this.state.records}
+								handleRecordChange={this.handleRecordChange}
 								stories={this.state.stories}
 								storyId={this.state.storyId}
 								handleSubmit={this.handleSubmit}
