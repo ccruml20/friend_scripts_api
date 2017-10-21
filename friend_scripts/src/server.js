@@ -9,9 +9,8 @@ var bodyParser = require("body-parser");
 var cookieParser = require("cookie-parser");
 var passport = require("passport");
 const mongo = require("mongodb").MongoClient;
-const client = require("socket.io").listen(4000).sockets;
-
-
+const io = require("socket.io").listen(4000).sockets;
+// var history;
 // Sets up the Express App
 // =============================================================
 var app = express();
@@ -60,7 +59,8 @@ mongo.connect("mongodb://127.0.0.1/mongochat", function(err, db) {
 	console.log("MongoDB connected...");
 
 	// Connect to Socket.io
-	client.on("connection", function(socket) {
+	io.on("connection", function(socket) {
+		console.log("a user has connected");
 		let chat = db.collection("chats");
 
 		// Create function to send status to server
@@ -79,11 +79,13 @@ mongo.connect("mongodb://127.0.0.1/mongochat", function(err, db) {
 				}
 
 				// Emit messages to client
-				socket.emit("output", res);
+				socket.broadcast.emit("output", res);
+				console.log(res);
+				// history = res;
 			});
 
 		// Handle input events
-		socket.on("input", function(data) {
+		socket.on("chat message", function(data) {
 			let name = data.name;
 			let message = data.message;
 
@@ -93,7 +95,7 @@ mongo.connect("mongodb://127.0.0.1/mongochat", function(err, db) {
 			} else {
 				// Insert message into database
 				chat.insert({ name: name, message: message }, function() {
-					client.emit("output", [data]);
+					io.emit("output", [data]);
 
 					// Send status object
 					sendStatus({
@@ -114,3 +116,4 @@ mongo.connect("mongodb://127.0.0.1/mongochat", function(err, db) {
 		});
 	});
 });
+// module.exports = history;

@@ -2,6 +2,7 @@ import React from "react";
 import NewStoryForm from "./NewStoryForm";
 import * as mdc from "material-components-web/dist/material-components-web";
 import EditStories from "../editStories/editStories.js";
+import ChatContainer from "../chat/ChatContainer";
 
 class MyStories extends React.Component {
 	constructor(props) {
@@ -202,6 +203,7 @@ class MyStories extends React.Component {
 						handleChange={this.handleChange}
 					/>
 				</div>
+				<ChatContainer />
 			</div>
 		);
 	}
