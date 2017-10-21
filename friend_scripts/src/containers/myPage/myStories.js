@@ -2,12 +2,8 @@ import React from "react";
 import NewStoryForm from "./NewStoryForm";
 import * as mdc from "material-components-web/dist/material-components-web";
 import EditStories from "../editStories/editStories.js";
-<<<<<<< HEAD
 import ChatContainer from "../chat/ChatContainer";
 
-=======
-import { EditorState } from 'draft-js';
->>>>>>> 931221d2e69b4651affbc960b8b59969a1cb630c
 class MyStories extends React.Component {
 	constructor(props) {
 		super(props);
@@ -190,7 +186,6 @@ class MyStories extends React.Component {
 							/>
 						</div>
 					</div>
-<<<<<<< HEAD
 					<NewStoryForm />
 				</div>
 				<div style={{ display: this.state.elementHidden2 ? "block" : "none" }}>
@@ -209,10 +204,5 @@ class MyStories extends React.Component {
 		);
 	}
 }
-=======
-				);
-			}
-		}
->>>>>>> 931221d2e69b4651affbc960b8b59969a1cb630c
 
 		export default MyStories;

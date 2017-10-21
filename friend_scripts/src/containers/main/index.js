@@ -8,15 +8,6 @@ class Main extends React.Component {
 		this.linkClicked = this.linkClicked.bind(this);
 	}
 
-<<<<<<< HEAD
-	linkClicked(route, div) {
-		document.querySelectorAll(".mdc-list-item").forEach(element => {
-			element.className = "mdc-list-item";
-		});
-		div.className = "mdc-list-item mdc-temporary-drawer--selected";
-		alert(route);
-	}
-=======
   constructor(props) {
     super(props);
     this.linkClicked = this.linkClicked.bind(this);
@@ -80,7 +71,6 @@ class Main extends React.Component {
       </div>
     );
   }
->>>>>>> 931221d2e69b4651affbc960b8b59969a1cb630c
 
 	render() {
 		return (
