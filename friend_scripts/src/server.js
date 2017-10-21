@@ -9,9 +9,8 @@ var bodyParser = require("body-parser");
 var cookieParser = require("cookie-parser");
 var passport = require("passport");
 const mongo = require("mongodb").MongoClient;
-const client = require("socket.io").listen(4000).sockets;
-
-
+const io = require("socket.io").listen(4000).sockets;
+// var history;
 // Sets up the Express App
 // =============================================================
 var app = express();
@@ -45,12 +44,6 @@ require("./routes/author-api-routes.js")(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
-db.sequelize.sync({}).then(function() {
-	app.listen(PORT, function() {
-		console.log("App listening on PORT " + PORT);
-	});
-});
-
 // Connect to mongodb
 mongo.connect("mongodb://127.0.0.1/mongochat", function(err, db) {
 	if (err) {
@@ -60,7 +53,8 @@ mongo.connect("mongodb://127.0.0.1/mongochat", function(err, db) {
 	console.log("MongoDB connected...");
 
 	// Connect to Socket.io
-	client.on("connection", function(socket) {
+	io.on("connection", function(socket) {
+		console.log("a user has connected");
 		let chat = db.collection("chats");
 
 		// Create function to send status to server
@@ -71,7 +65,7 @@ mongo.connect("mongodb://127.0.0.1/mongochat", function(err, db) {
 		// Get chats from mongo collection
 		chat
 			.find()
-			.limit(100)
+			.limit(200)
 			.sort({ _id: 1 })
 			.toArray(function(err, res) {
 				if (err) {
@@ -80,6 +74,8 @@ mongo.connect("mongodb://127.0.0.1/mongochat", function(err, db) {
 
 				// Emit messages to client
 				socket.emit("output", res);
+				console.log(res);
+				history = res;
 			});
 
 		// Handle input events
@@ -93,7 +89,8 @@ mongo.connect("mongodb://127.0.0.1/mongochat", function(err, db) {
 			} else {
 				// Insert message into database
 				chat.insert({ name: name, message: message }, function() {
-					client.emit("output", [data]);
+					io.emit("output", [data]);
+					console.log([data]);
 
 					// Send status object
 					sendStatus({
@@ -112,5 +109,12 @@ mongo.connect("mongodb://127.0.0.1/mongochat", function(err, db) {
 				socket.emit("cleared");
 			});
 		});
+	});
+});
+// module.exports = history;
+
+db.sequelize.sync({}).then(function() {
+	app.listen(PORT, function() {
+		console.log("App listening on PORT " + PORT);
 	});
 });
