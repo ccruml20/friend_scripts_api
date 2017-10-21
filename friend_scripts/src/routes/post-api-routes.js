@@ -12,7 +12,7 @@ module.exports = function(app) {
 		db.stories
 			.findAll({
 				include: [db.authors],
-				limit: 3,
+				limit: 6,
 				order: [["createdAt", "DESC"]],
 				where: { authorId: req.params.authorId }
 			})

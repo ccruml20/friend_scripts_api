@@ -32,7 +32,7 @@ class MyStories extends React.Component {
 			storyId,
 			authorId
 		};
-		console.log("this is the sentence object to post", sentences);
+		// console.log("this is the sentence object to post", sentences);
 		fetch("/api/sentences", {
 			method: "POST",
 			headers: {
@@ -110,14 +110,18 @@ class MyStories extends React.Component {
 
 	componentWillMount() {
 		const self = this;
-		fetch("./api/stories")
-		.then(function(response) {
-			return response.json();
-		})
-		.then(function(body) {
-			let myStoryInfo = body;
-			self.setState({ myStoryInfo: myStoryInfo });
-		});
+		console.log(this.props.userID, 'this is the state as of now bitches===================')
+		fetch("/api/myStories/"+this.props.userID)
+			.then(function(response) {
+				return response.json();
+			})
+			.then(function(body) {
+				// console.log(body);
+				let myStoryInfo = body;
+				console.log(myStoryInfo)
+				self.setState({ myStoryInfo: myStoryInfo });
+				// console.log("State", self.state.myStoryInfo);
+			});
 	}
 	render() {
 		return (

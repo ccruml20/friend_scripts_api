@@ -5,7 +5,6 @@ import Landing_Main from "./containers/Landing/Landing_Main";
 import CreateAccountForm from "./containers/Landing/CreateAccountPage";
 import "./App.css";
 
-
 class App extends Component {
 	constructor(props) {
 		super(props);
@@ -15,28 +14,20 @@ class App extends Component {
 			userPic: null,
 			accessToken: null
 		};
+		this.getUserID = this.getUserID.bind(this)
+	}
+	getUserID(){
+		return this.state.userID
 	}
 
 	isLoggedIn() {
-// 		var options = {
-//     timeout:  3000
-//   , pool:     { maxSockets:  Infinity }
-//   , headers:  { connection:  "keep-alive" }
-// };
-//
-// graph
-// 	.setAccessToken(this.state.accessToken)
-//   .setOptions(options)
-//   .get("me", function(err, res) {
-//     console.log(res); // { id: '4', name: 'Mark Zuckerberg'... }
-//   });
-// console.log(this.state.accessToken)
-// console.log(this.state.userPic);
+console.log(this.state)
+console.log(this.state.userPic);
 		return this.state.user;
 	}
 
 	logInUser(userName, id, pic, token) {
-
+		// userID = id;
 		this.setState({
 			user: userName,
 			userID: id,
@@ -57,7 +48,7 @@ class App extends Component {
 		return (
 			<BrowserRouter>
 				<div>
-					<AuthRoute exact path="/" component={Main} checkAuth={() => this.isLoggedIn()} />
+					<AuthRoute exact path="/" component={Main} checkAuth={() => this.isLoggedIn()} userID={this.state.userID}/>
 					<Route exact path="/landingMain" render={(props) => <Landing_Main logInUser={this.logInUser.bind(this)} {...props} />} />
 					<Route exact path="/CreateAccount" component={CreateAccountForm} />
 				</div>
@@ -66,8 +57,8 @@ class App extends Component {
 	}
 }
 
-function AuthRoute({component: Component, checkAuth, ...rest}) {
-	console.log(...rest);
+function AuthRoute({component: Component, checkAuth, userID, ...rest}) {
+	console.log(userID);
 	return (
 		<Route
 			{...rest}
@@ -75,7 +66,7 @@ function AuthRoute({component: Component, checkAuth, ...rest}) {
 			!checkAuth() ? (
 				<Redirect to="/landingMain"/>
 			) : (
-				<Component />
+				<Component userID={userID}/>
 			)
 		)}/>
 	);

@@ -8,7 +8,8 @@ export default class NewStoryForm extends React.Component {
 		this.changeStorySentence = this.changeStorySentence.bind(this);
 		this.storyInfo = {
 			storyTitle: "",
-			sentence: ""
+			sentence: "",
+			authorId: this.props.userID
 		};
 	}
 
@@ -38,7 +39,7 @@ export default class NewStoryForm extends React.Component {
 			<div className="col-md-6">
 				<div className="container">
 					<div className="row">
-						<div className="">
+
 							<div className="form_main">
 								<h4 className="heading">
 									<strong>Create </strong> New Story <span />
@@ -72,10 +73,12 @@ export default class NewStoryForm extends React.Component {
 									</form>
 								</div>
 							</div>
-						</div>
+
 					</div>
 				</div>
 			</div>
+		
+
 		);
 	}
 }
