@@ -13,7 +13,10 @@ module.exports = function(sequelize, DataTypes) {
 	      type: DataTypes.STRING,
 	      allowNull: false
 	      // len: [1]
-	  }
+	  },
+    {fbUserID:
+    type: DataTypes.String
+    allowNull: false}
   });
 
   return newAuthor;

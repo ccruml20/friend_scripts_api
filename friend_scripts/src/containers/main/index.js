@@ -20,6 +20,7 @@ class Main extends React.Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <div className={'Main'}>
         <header className={'mdc-toolbar mdc-toolbar--fixed'}>
@@ -39,25 +40,25 @@ class Main extends React.Component {
               </div>
             </header>
             <nav className={'mdc-temporary-drawer__content mdc-list'}>
-              <div className={'mdc-list-item mdc-temporary-drawer--selected'} ref={(div) => { div.addEventListener("click", () => { this.linkClicked('landingMain', div) }); }}>
+              <div className={'mdc-list-item mdc-temporary-drawer--selected'}>
                 <i className={'material-icons mdc-list-item__start-detail'} aria-hidden="true">Landing_Main</i>
               </div>
-              <div className={'mdc-list-item'} ref={(div) => { div.addEventListener("click", () => { this.linkClicked('staff', div) }); }}>
-                <i className={'material-icons mdc-list-item__start-detail'} aria-hidden="true">people_outline</i>Staff
+              <div className={'mdc-list-item'}>
+                <i className={'material-icons mdc-list-item__start-detail'} aria-hidden="true"></i>Staff
               </div>
-              <div className={'mdc-list-item'} ref={(div) => { div.addEventListener("click", () => { this.linkClicked('about', div) }); }}>
-                <i className={'material-icons mdc-list-item__start-detail'} aria-hidden="true">business</i>About
+              <div className={'mdc-list-item'}>
+                <i className={'material-icons mdc-list-item__start-detail'} aria-hidden="true"></i>About
               </div>
-              <div className={'mdc-list-item'} ref={(div) => { div.addEventListener("click", () => { this.linkClicked('menu', div) }); }}>
-                <i className={'material-icons mdc-list-item__start-detail'} aria-hidden="true">view_quilt</i>Menu
+              <div className={'mdc-list-item'}>
+                <i className={'material-icons mdc-list-item__start-detail'} aria-hidden="true"></i>Menu
               </div>
-              <div className={'mdc-list-item'} ref={(div) => { div.addEventListener("click", () => { this.linkClicked('calendar', div) }); }}>
-                <i className={'material-icons mdc-list-item__start-detail'} aria-hidden="true">event</i>Calendar
+              <div className={'mdc-list-item'}>
+                <i className={'material-icons mdc-list-item__start-detail'} aria-hidden="true"></i>Calendar
               </div>
-              <div className={'mdc-list-item'} ref={(div) => { div.addEventListener("click", () => { this.linkClicked('badges', div) }); }}>
-                <i className={'material-icons mdc-list-item__start-detail'} aria-hidden="true">local_play</i>Badges
+              <div className={'mdc-list-item'}>
+                <i className={'material-icons mdc-list-item__start-detail'} aria-hidden="true"></i>Badges
               </div>
-              <div className={'mdc-list-item'} ref={(div) => { div.addEventListener("click", () => { this.linkClicked('messaging', div) }); }}>
+              <div className={'mdc-list-item'}>
                 <i className={'material-icons mdc-list-item__start-detail'} aria-hidden="true">share</i>Messaging
               </div>
             </nav>
@@ -65,7 +66,7 @@ class Main extends React.Component {
         </aside>
         <main id="Main-main" className={'mdc-toolbar-fixed-adjust'}>
         </main>
-        <MyStories/>
+        <MyStories userID = {this.props.userID}/>
       </div>
     );
   }

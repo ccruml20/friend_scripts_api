@@ -8,7 +8,8 @@ export default class NewStoryForm extends React.Component {
 		this.changeStorySentence = this.changeStorySentence.bind(this);
 		this.storyInfo = {
 			storyTitle: "",
-			sentence: ""
+			sentence: "",
+			authorId: this.props.userID
 		};
 	}
 
