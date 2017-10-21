@@ -22,7 +22,7 @@ class Main extends React.Component {
 
   render() {
     return (
-      <div className={'Main'}>
+      <div style={{backgroundColor: 'red'}} className={'Main'}>
         <header className={'mdc-toolbar mdc-toolbar--fixed'}>
           <div className={'mdc-toolbar__row'}>
             <section className={'mdc-toolbar__section mdc-toolbar__section--align-start'}>

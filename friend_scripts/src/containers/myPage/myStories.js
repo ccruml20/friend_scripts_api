@@ -2,7 +2,7 @@ import React from "react";
 import NewStoryForm from "./NewStoryForm";
 import * as mdc from "material-components-web/dist/material-components-web";
 import EditStories from "../editStories/editStories.js";
-
+import { EditorState } from 'draft-js';
 class MyStories extends React.Component {
 	constructor(props) {
 		super(props);
@@ -39,42 +39,33 @@ class MyStories extends React.Component {
 			},
 			body: JSON.stringify(sentences)
 		})
-			.then(result => {
-				// console.log(result, '[[[[[[[[[[[[[[[[[[[[[results]]]]]]]]]]]]]]]]]]]]]');
-				return result;
-			})
-			.then(response => {
-				// console.log(response,' I am the response');
-				const stories = response;
-				// console.log(stories,"___________________________articles main.js");
-			})
-			.catch(err => {
-				console.log(err);
-			});
+		.then(result => {
+			return result;
+		})
+		.then(response => {
+			const stories = response;
+		})
+		.catch(err => {
+			console.log(err);
+		});
 
 		fetch(`./api/fullstory-${storyId}`, {})
-			.then(response => {
-				return response.json();
-				// let body = response.map((info, index)=>{
-				// 	console.log(info);
-				// })
-				// console.log(body,'this is the sentences');
-				// return body;
-			})
-			.then(body => {
-				let stories = [];
-				// console.log(body + 'this is the full story')
-				let fullstory = body.map((info, index) => {
-					stories.push(info.sentence);
-					return stories;
-				});
-				this.setState({ stories });
-				console.log(
-					this.state.stories,
-					"full state obj==========================obj"
-				);
+		.then(response => {
+			return response.json();
+		})
+		.then(body => {
+			let stories = [];
+			let fullstory = body.map((info, index) => {
+				stories.push(info.sentence);
+				console.log(stories);
+				return stories;
 			});
+
+
+
+		});
 	}
+
 
 	handlePickedStory(e, info) {
 		e.preventDefault();
@@ -92,51 +83,42 @@ class MyStories extends React.Component {
 		this.setState({ elementHidden2: true });
 
 		fetch(`./api/fullstory-${storyId}`, {})
-			.then(response => {
-				return response.json();
-				// let body = response.map((info, index)=>{
-				// 	console.log(info);
-				// })
-				// console.log(body,'this is the sentences');
-				// return body;
-			})
-			.then(body => {
-				let stories = [];
-				// console.log(body + 'this is the full story')
-				let fullstory = body.map((info, index) => {
-					stories.push(info.sentence);
-					return stories;
-				});
-				this.setState({ stories });
-				console.log(
-					this.state.stories,
-					"full state obj==========================obj"
-				);
+		.then(response => {
+			return response.json();
+		})
+		.then(body => {
+			let stories = [];
+			let fullstory = body.map((info, index) => {
+				stories.push(info.sentence);
+				return stories;
 			});
-		// console.log('The link was clicked.', this.state.pickedStory, 'textie McTexterton', this.state.text, );
+			this.setState({ stories });
+			let formatedStories = stories.join()
+			console.log(formatedStories)
+			let moreFormatting = ("<p>"+formatedStories+"</p>");
+			moreFormatting = '"'+moreFormatting+'"'
+			console.log(moreFormatting , ' formatedStories damnit');
+			this.setState({ stories: moreFormatting });
+
+		});
 	}
 
 	handleChange(e, value) {
 		this.setState({ text: e.target.value });
-		// console.log(this.state, 'this is the onChange text state+++++++++++++++++++++++++');
 	}
 
 	componentWillMount() {
 		const self = this;
-		// console.log(this.state, 'this is the state as of now bitches===================')
 		fetch("./api/stories")
-			.then(function(response) {
-				return response.json();
-			})
-			.then(function(body) {
-				// console.log(body);
-				let myStoryInfo = body;
-				self.setState({ myStoryInfo: myStoryInfo });
-				// console.log("State", self.state.myStoryInfo);
-			});
+		.then(function(response) {
+			return response.json();
+		})
+		.then(function(body) {
+			let myStoryInfo = body;
+			self.setState({ myStoryInfo: myStoryInfo });
+		});
 	}
 	render() {
-		// console.log(this.state.myStoryInfo, 'this is the my story info');
 		return (
 			<div>
 				<div style={{ display: this.state.elementHidden ? "block" : "none" }}>
@@ -152,59 +134,59 @@ class MyStories extends React.Component {
 					</div>
 					<div className="col-md-6">
 						{this.state.myStoryInfo.map((info, index) => {
-							// console.log('this is the info________________',info);
 							return (
 								<div key={index} className="stories">
 									<div
-										style={{ height: "120px", margin: "15px 0 15px 0" }}
+										style={{ height: "120px", margin: "15px 0" }}
 										className="col-md-6"
-									>
-										<div className="mdc-card">
-											<section className="mdc-card__primary">
-												<h1 className="mdc-card__title mdc-card__title--large">
-													{info.storyTitle}
-												</h1>
-												<h2 className="mdc-card__subtitle">
-													{info.author.authorName}
-												</h2>
-											</section>
-											<section className="mdc-card__supporting-text">
-												{info.sentence}
-											</section>
-											<section className="mdc-card__actions">
-												<button
-													onClick={e => this.handlePickedStory(e, info)}
-													value={info}
-													className="mdc-button mdc-button--compact mdc-card__action"
-												>
-													Edit
-												</button>
-												<button className="mdc-button mdc-button--compact mdc-card__action">
-													Read
-												</button>
-											</section>
+										>
+											<div className="mdc-card">
+												<section className="mdc-card__primary">
+													<h1 className="mdc-card__title mdc-card__title--large">
+														{info.storyTitle}
+													</h1>
+													<h2 className="mdc-card__subtitle">
+														{info.author.authorName}
+													</h2>
+												</section>
+												<section className="mdc-card__supporting-text">
+													{info.sentence}
+												</section>
+												<section className="mdc-card__actions">
+													<button
+														onClick={e => this.handlePickedStory(e, info)}
+														value={info}
+														className="mdc-button mdc-button--compact mdc-card__action"
+														>
+															Edit
+														</button>
+														<button className="mdc-button mdc-button--compact mdc-card__action">
+															Read
+														</button>
+													</section>
+												</div>
+											</div>
 										</div>
-									</div>
-								</div>
-							);
-						})}
+									);
+								})}
+							</div>
+							<NewStoryForm />
+						</div>
+						<div style={{ display: this.state.elementHidden2 ? "block" : "none" }}>
+							<EditStories
+								stories={this.state.stories}
+								storyId={this.state.storyId}
+								handleSubmit={this.handleSubmit}
+								text={this.state.text}
+								elementHidden={this.state.elementHidden}
+								elementHidden2={this.state.elementHidden}
+								pickedStory={this.state.pickedStory}
+								handleChange={this.handleChange}
+							/>
+						</div>
 					</div>
-					<NewStoryForm />
-				</div>
-				<div style={{ display: this.state.elementHidden2 ? "block" : "none" }}>
-					<EditStories
-						stories={this.state.stories}
-						handleSubmit={this.handleSubmit}
-						text={this.state.text}
-						elementHidden={this.state.elementHidden}
-						elementHidden2={this.state.elementHidden}
-						pickedStory={this.state.pickedStory}
-						handleChange={this.handleChange}
-					/>
-				</div>
-			</div>
-		);
-	}
-}
+				);
+			}
+		}
 
-export default MyStories;
+		export default MyStories;

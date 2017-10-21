@@ -45,14 +45,14 @@ import graph from 'fb-react-sdk';
     }
 
     responseFacebook(response) {
-      console.log(response)
+      // console.log(response)
       // sessionStorage.setItem("user", response.name);
       this.props.logInUser(response.name, response.userID, response.picture, response.accessToken);
 
       if(response.name){
         this.props.history.push("/");
       }
-      
+
       else{alert("Check your FaceBook Account")}
     }
 
